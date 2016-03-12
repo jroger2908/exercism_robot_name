@@ -3,7 +3,7 @@
 
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'robot_name'
+require_relative 'robot'
 
 class RobotTest < Minitest::Test
   COMMAND_QUERY = <<-MSG.freeze
@@ -18,19 +18,16 @@ class RobotTest < Minitest::Test
   end
 
   def test_name_sticks
-    skip
     robot = Robot.new
     robot.name
     assert_equal robot.name, robot.name
   end
 
   def test_different_robots_have_different_names
-    skip
     refute_equal Robot.new.name, Robot.new.name
   end
 
   def test_reset_name
-    skip
     robot = Robot.new
     name = robot.name
     robot.reset
